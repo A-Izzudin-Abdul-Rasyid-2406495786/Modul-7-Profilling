@@ -71,3 +71,65 @@ Metode `findStudentWithHighestGpa()` melakukan *anti-pattern* dengan menarik sel
 
 **Hasil JMeter Test Logs:**
 ![JMeter JTL - Highest GPA Before](screenshots/hasil_test_3.png)
+
+---
+
+## 🚀 After Optimization
+
+Setelah mengidentifikasi masalah pada tahap baseline, dilakukan optimasi pada layer `Repository` dan `Service`. Berikut adalah hasil perbandingan performa setelah dilakukan *refactoring* kode:
+
+### 1. Endpoint `/all-student` (Optimasi N+1 Query)
+
+**Langkah Optimasi:**
+Menggunakan teknik **JOIN FETCH** pada `StudentCourseRepository` untuk menarik data `Student` dan `Course` dalam satu *query* tunggal, sehingga menghilangkan 5.000 *query* tambahan yang sebelumnya terjadi.
+
+**Hasil Performa:**
+* **Average Load Time:** Turun drastis dari **6.250 ms** menjadi sekitar **71 - 96 ms**.
+* **Peningkatan:** >98% lebih cepat.
+
+**Bukti Eksekusi JMeter GUI:**
+![JMeter GUI - All Student After](screenshots/allstudentafter1.png)
+
+**Hasil JMeter Test Logs:**
+![JMeter JTL - All Student After](screenshots/allstudentafter2.png)
+
+---
+
+### 2. Endpoint `/all-student-name` (Optimasi Memori & String)
+
+**Langkah Optimasi:**
+1. Menerapkan **Database Projection** untuk hanya mengambil kolom `name` dari database.
+2. Mengganti penggabungan string manual (`+=`) dengan **`String.join()`** yang jauh lebih efisien dalam penggunaan memori dan CPU.
+
+**Hasil Performa:**
+* **Average Load Time:** Turun dari **52 ms** menjadi sekitar **11 - 12 ms**.
+* **Peningkatan:** >75% lebih cepat.
+
+**Bukti Eksekusi JMeter GUI:**
+![JMeter GUI - All Student Name After](screenshots/allstudentnameafter1.png)
+
+**Hasil JMeter Test Logs:**
+![JMeter JTL - All Student Name After](screenshots/allstudentnameafter2.png)
+
+---
+
+### 3. Endpoint `/highest-gpa` (Optimasi Database Sorting)
+
+**Langkah Optimasi:**
+Delegasi proses pencarian GPA tertinggi ke database menggunakan fungsi `findFirstByOrderByGpaDesc()`. Aplikasi tidak lagi menarik seluruh data ke RAM, melainkan hanya menerima **1 baris data** hasil sortir dari database.
+
+**Hasil Performa:**
+* **Average Load Time:** Turun dari **35 ms** menjadi sekitar **7 - 10 ms**.
+* **Peningkatan:** >70% lebih cepat.
+
+**Bukti Eksekusi JMeter GUI:**
+![JMeter GUI - Highest GPA After](screenshots/highestgpaafater1.png)
+
+**Hasil JMeter Test Logs:**
+![JMeter JTL - Highest GPA After](screenshots/highestgpaafter2.png)
+
+---
+
+## 💡 Kesimpulan
+Melalui teknik profiling dan optimasi yang tepat, aplikasi berhasil mencapai target peningkatan performa minimum 20%. Peningkatan paling signifikan terlihat pada endpoint `/all-student` yang berhasil mengatasi masalah I/O bottleneck (N+1 Query), menjadikannya ribuan kali lebih efisien dan siap untuk menangani beban data yang lebih besar.
+
