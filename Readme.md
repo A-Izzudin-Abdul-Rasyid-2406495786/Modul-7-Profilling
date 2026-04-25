@@ -22,10 +22,10 @@ Berdasarkan pengujian, masalah N+1 Query ini menyebabkan antrean proses I/O ke d
 * **Average Load Time (CLI):** 6.250 ms.
 
 **Bukti Eksekusi JMeter GUI:**
-![JMeter GUI - All Student Before](all-studentBefore.png)
+![JMeter GUI - All Student Before](screenshots/all-studentBefore.png)
 
 **Bukti Eksekusi JMeter Terminal (CLI):**
-![JMeter CLI - All Student Before](all-studentBeforeTerminal.png)
+![JMeter CLI - All Student Before](screenshots/all-studentBeforeTerminal.png)
 
 *(Catatan: Tambahkan screenshot Flame Graph dari IntelliJ Profiler di sini untuk membuktikan metode `getAllStudentsWithCourses` memakan CPU time paling besar).*
 
@@ -43,10 +43,10 @@ Walaupun waktu respons tergolong cepat, terdapat pemborosan memori dan CPU yang 
 * **Average Load Time (CLI):** 52 ms.
 
 **Bukti Eksekusi JMeter GUI:**
-![JMeter GUI - All Student Name Before](all-student-nameBefore.png)
+![JMeter GUI - All Student Name Before](screenshots/all-student-nameBefore.png)
 
 **Bukti Eksekusi JMeter Terminal (CLI):**
-![JMeter CLI - All Student Name Before](all-student-nameBeforeTerminal.png)
+![JMeter CLI - All Student Name Before](screenshots/all-student-nameBeforeTerminal.png)
 
 ---
 
@@ -60,7 +60,7 @@ Metode `findStudentWithHighestGpa()` melakukan *anti-pattern* dengan menarik sel
 * **Average Load Time (CLI):** 35 ms.
 
 **Bukti Eksekusi JMeter GUI:**
-![JMeter GUI - Highest GPA Before](highest-gpaBefore.png)
+![JMeter GUI - Highest GPA Before](screenshots/highest-gpaBefore.png)
 
 **Bukti Eksekusi JMeter Terminal (CLI):**
-![JMeter CLI - Highest GPA Before](highest-gpaBeforeTerminal.png)****
+![JMeter CLI - Highest GPA Before](screenshots/highest-gpaBeforeTerminal.png)****
