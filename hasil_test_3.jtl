@@ -1,0 +1,11 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1777109656246,44,highest-gpa request,200,,Thread Group 1-1,text,true,,300,128,2,2,http://localhost:8080/highest-gpa,41,0,16
+1777109656274,24,highest-gpa request,200,,Thread Group 1-2,text,true,,300,128,1,1,http://localhost:8080/highest-gpa,24,0,1
+1777109656374,32,highest-gpa request,200,,Thread Group 1-3,text,true,,300,128,1,1,http://localhost:8080/highest-gpa,32,0,1
+1777109656474,32,highest-gpa request,200,,Thread Group 1-4,text,true,,300,128,1,1,http://localhost:8080/highest-gpa,32,0,0
+1777109656574,36,highest-gpa request,200,,Thread Group 1-5,text,true,,300,128,1,1,http://localhost:8080/highest-gpa,36,0,0
+1777109656675,36,highest-gpa request,200,,Thread Group 1-6,text,true,,300,128,1,1,http://localhost:8080/highest-gpa,36,0,2
+1777109656773,35,highest-gpa request,200,,Thread Group 1-7,text,true,,300,128,1,1,http://localhost:8080/highest-gpa,35,0,1
+1777109656873,30,highest-gpa request,200,,Thread Group 1-8,text,true,,300,128,1,1,http://localhost:8080/highest-gpa,30,0,1
+1777109656973,36,highest-gpa request,200,,Thread Group 1-9,text,true,,300,128,1,1,http://localhost:8080/highest-gpa,36,0,1
+1777109657071,46,highest-gpa request,200,,Thread Group 1-10,text,true,,300,128,1,1,http://localhost:8080/highest-gpa,46,0,1

@@ -27,7 +27,8 @@ Berdasarkan pengujian, masalah N+1 Query ini menyebabkan antrean proses I/O ke d
 **Bukti Eksekusi JMeter Terminal (CLI):**
 ![JMeter CLI - All Student Before](screenshots/all-studentBeforeTerminal.png)
 
-*(Catatan: Tambahkan screenshot Flame Graph dari IntelliJ Profiler di sini untuk membuktikan metode `getAllStudentsWithCourses` memakan CPU time paling besar).*
+**Hasil JMeter Test Logs:**
+![JMeter JTL - All Student Before](screenshots/hasil_test_1.png)
 
 ---
 
@@ -48,6 +49,9 @@ Walaupun waktu respons tergolong cepat, terdapat pemborosan memori dan CPU yang 
 **Bukti Eksekusi JMeter Terminal (CLI):**
 ![JMeter CLI - All Student Name Before](screenshots/all-student-nameBeforeTerminal.png)
 
+**Hasil JMeter Test Logs:**
+![JMeter JTL - All Student Name Before](screenshots/hasil_test_2.png)
+
 ---
 
 ### 3. Endpoint `/highest-gpa`
@@ -63,4 +67,7 @@ Metode `findStudentWithHighestGpa()` melakukan *anti-pattern* dengan menarik sel
 ![JMeter GUI - Highest GPA Before](screenshots/highest-gpaBefore.png)
 
 **Bukti Eksekusi JMeter Terminal (CLI):**
-![JMeter CLI - Highest GPA Before](screenshots/highest-gpaBeforeTerminal.png)****
+![JMeter CLI - Highest GPA Before](screenshots/highest-gpaBeforeTerminal.png)
+
+**Hasil JMeter Test Logs:**
+![JMeter JTL - Highest GPA Before](screenshots/hasil_test_3.png)
